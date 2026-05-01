@@ -1,0 +1,35 @@
+<%layout('./layout/boiler.ejs')%>
+    <div class="row col-8 offset-2">
+        <div class=" row col-8 offset-3">
+
+            <h2>Singup For Wanderlust</h2>
+        </div>
+        <hr>
+        <form action="/signup" method="post" class="needs-validation" novalidate>
+
+              <div>
+                <label for="username" class="form-label" >Username:</label>
+                <input name="username" placeholder="Enter a username" class="form-control" required> 
+              <div class="valid-feedback">
+                look good
+              </div>
+            </div><br>
+
+            <div>
+                <label for="email" class="form-label" >Email:</label>
+                <input name="email" type="email" placeholder="Enter a email" class="form-control" required> 
+            </div><br>
+
+             <div>
+                <label for="password" class="form-label" >Password:</label>
+                <input name="password" type="password" placeholder="Enter a Password" class="form-control" required> 
+            </div><br>
+            
+                    <div class=" row col-8 offset-2">
+
+            <button class="btn btn-primary">Singup</button>
+            </div>
+
+
+        </form>
+</div>

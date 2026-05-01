@@ -1,0 +1,81 @@
+<style>
+  .search-box form {
+height: 3.5rem;
+  }
+  .search-box input{
+    border-radius: 10px;
+    padding: 0 2rem 0 2rem;
+  }
+   .search-btn{
+    background-color: red  !important;
+    color: white;
+        border-radius: 10px;
+padding: 0 1rem 0 1rem;
+
+   }
+</style>
+
+<nav class="navbar navbar-expand-sm bg-body-tertiary border-bottom sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" ><i class="fa-brands fa-airbnb"></i></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="/listning">All Listning</a>
+            </div>
+
+            <!-- searchbar -->
+            <div class="ms-auto search-box">
+    <form class="d-flex"  role="search" action="/listning/search" method="get">
+      <input class="form-control me-2" type="search" name="q" id="searchInput"  placeholder="Search Listning" aria-label="Search"/>
+      <button class="btn btn-outline-danger search-btn" type="submit">Search</button>
+    </form>
+      <div id="resultsBox"></div>
+
+  </div>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="/listning/new">Add Listning</a>
+           <% if(!UserInfo){%>
+                <a class="nav-link" aria-current="page" href="/login"><b>Login</b></a>
+                <a class="nav-link" href="/signup"><b>SingUp</b></a>
+            <%} else {%>
+                <a class="nav-link" href="/logout"> <b>Logout</b></a>
+                <%}%>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+let input = document.getElementById("searchInput");
+let resultsBox = document.getElementById("resultsBox");
+
+let timeout;
+
+input.addEventListener("input", () => {
+    clearTimeout(timeout);
+
+    timeout = setTimeout(async () => {
+        let query = input.value;
+
+        let res = await fetch(`/listning/live-search?q=${query}`);
+        let data = await res.json();
+
+        resultsBox.innerHTML = "";
+
+        data.forEach(item => {
+            let div = document.createElement("div");
+            div.innerHTML = `
+                <a href="/listning/${item._id}">
+                    ${item.title}
+                </a>
+            `;
+            resultsBox.appendChild(div);
+        });
+
+    }, 300); // debounce 300ms
+});
+</script>
+

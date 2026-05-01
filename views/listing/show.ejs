@@ -1,0 +1,25 @@
+<%layout('/layout/boiler.ejs')%>
+
+    <body>      
+        <h3 class="heading">View All List</h3><hr>
+        <!-- <form method="get" action="/listning/new"><button>Create a new listning</button></form> -->
+
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 ">
+            <% for(let list of alllist){ %>
+
+                <div class="card " style="width: 18rem;">
+                    <!-- <a href=""></a> -->
+                    <a href="/listning/<%=list._id%>" class="list-link">
+                        <img src=<%=list.image%> class="card-img-top home-img" style="height: 18rem;" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b><%=list.title%></b><br>
+                                &#8377;<%= list.price ? list.price.toLocaleString('en-IN') : "0" %><br>
+                        </p>
+                    </div>
+                    </a>
+                </div>
+                <%}%>
+        </div>
+
+    </body>

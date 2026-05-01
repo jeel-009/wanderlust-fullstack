@@ -1,0 +1,49 @@
+<%layout('/layout/boiler.ejs')%>
+
+    <body>
+        <div class="row col-8 offset-2">
+            
+            <h3 class="heading">Create New Listning</h3>
+        <form method="post" action="/listning" class="needs-validation" novalidate enctype="multipart/form-data">
+            <div>
+                <label for="title" class="form-label" >Title:</label>
+                <input name="listning[title]" placeholder="Enter a Title" class="form-control" required> 
+              <div class="valid-feedback">
+                look good
+              </div>
+            </div>
+            <div>
+                <label for="description" class="form-label">Description:</label>
+                <textarea name="listning[description]" class="form-control"
+                    placeholder="Enter a description"></textarea>
+            </div>
+            <div>
+                <label for="title" class="form-label">Upload Image:</label>
+                <input name="listning[image]" class="form-control" placeholder="Enter a image Link/URL" type="file" required >
+            </div>
+
+            
+
+                <div class="row ">
+            <div class="col-sm-4">
+                <label for="title" class="form-label">Price:</label>
+                <input name="listning[price]" class="form-control" placeholder="1200">
+            </div>
+            <div class="col-sm-8">
+                <label for="title" class="form-label">Country:</label>
+                <input name="listning[country]" class="form-control" placeholder="India">
+            </div>
+
+        </div>
+        <div >
+            <label for="title" class="form-label">Location:</label>
+            <input name="listning[location]" class="form-control" placeholder="Surat, Gujarat">
+        </div>
+
+            
+
+
+            <button class=" btn btn-outline-danger ">Add New List</button>
+        </form>
+          </div>
+    </body>

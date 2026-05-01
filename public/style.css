@@ -1,0 +1,115 @@
+
+body {
+
+      
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+}
+.container{
+
+    flex: 1;
+}
+.heading{
+    text-align: center;
+    margin: 20px 0;
+}
+.fa-airbnb{
+    color: red !important;
+    font-size: 2rem;
+}
+.navbar{
+    height: 80px;
+    
+
+}
+footer{
+    background-color: #adacac;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+   gap: 10px;
+   padding: 20px 0;
+}
+
+.icon i{
+    /* margin: 10px 10px 0 0; */
+    font-size: 18px;
+
+}
+footer .text-link a{
+       
+   text-decoration: none;
+   color: black;
+    font-size: 18px;
+}
+footer .text p{
+   font-size: 18px;
+}
+
+.card {
+    width: 100%;
+    margin: auto;
+    border: none;
+   
+}
+
+.card-img-top{
+    width: 100%;
+    border-radius: 1rem;
+    object-fit: cover;
+}
+.card-body{
+    padding: 0;
+}
+
+.list-link {
+    text-decoration: none;
+    color: black;
+}
+.home-img:hover{
+    opacity: 0.5;
+}
+.btn {
+    margin: 10px 0;
+}
+.info-img{
+    height:45vh;
+}
+
+.cd-re{
+border: 1px solid black !important;
+}
+
+/*  styling for map */
+#map{
+   height: 400px;
+   width: 100%;
+   margin-top: 15px;
+   border-radius: 15px;
+}
+
+
+#resultsBox {
+  background: white;
+border-radius: 10px;
+  position: absolute;
+  width: 300px;
+
+}
+#resultsBox a{
+    text-decoration: none;
+    color: black;
+}
+
+#resultsBox div {
+  padding: 10px;
+  cursor: pointer;
+     border-radius: 10px;
+
+}
+
+#resultsBox div:hover {
+  background: #d2cece;  
+}
