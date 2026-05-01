@@ -30,7 +30,6 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 
 const atlasdburl = process.env.ATLASDB_URL; //MONGO_ATLAS
-
 const store = MongoStore.create({
     mongoUrl: atlasdburl,
     crypto: {
