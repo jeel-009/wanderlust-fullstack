@@ -1,7 +1,7 @@
 
-// if(process.env.NODE_ENV != 'production'){
+if(process.env.NODE_ENV != 'production'){
     require('dotenv').config()
-// }
+}
 // console.log(process.env.CLOUD_API_KEY)
 const express = require('express');
 const app = express();
@@ -130,6 +130,7 @@ app.use((err,req,res,next)=>{
 
 
 //start server
-app.listen(8080, () => { console.log('server is start in 8080') })
-
+app.listen(process.env.PORT || 8080, () => {
+    console.log("server started");
+});
 
