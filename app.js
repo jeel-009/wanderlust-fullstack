@@ -5,7 +5,7 @@ if(process.env.NODE_ENV != 'production'){
 // console.log(process.env.CLOUD_API_KEY)
 const express = require('express');
 const app = express();
-
+const PORT = process.env.PORT || 8080;
 const mongoose = require('mongoose');
 
 const Listning = require('./model/listning') //lsiting schema
@@ -75,8 +75,7 @@ res.locals.UserInfo = req.user;
 
 //server validation
 const reviewsSchema = require('./validation.js');
-const cookie = require('express-session/session/cookie.js');
-const { optional } = require('joi');
+
 
 const validationReview = (req, res, next) => {           
     const { error } = reviewsSchema.validate(req.body);
@@ -89,8 +88,13 @@ const validationReview = (req, res, next) => {
 }
 
 main()
-    .then(() => { console.log('DB connected') })
-    .catch(err => console.log(err));
+  .then(() => {
+    console.log("DB connected");
+    app.listen(PORT, () => {
+      console.log("server started");
+    });
+  })
+  .catch(err => console.log("DB Error:", err));
 
 async function main() {
     await mongoose.connect(atlasdburl);
@@ -128,8 +132,4 @@ app.use((err,req,res,next)=>{
 
 
 
-//start server
-app.listen(process.env.PORT || 8080, () => {
-    console.log("server started");
-});
 
