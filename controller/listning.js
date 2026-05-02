@@ -34,7 +34,7 @@ module.exports.searchResult = async (req, res) => {
       { title: { $regex: q, $options: "i" } },
       { location: { $regex: q, $options: "i" } },
       { country: { $regex: q, $options: "i" } }
-    ]
+    ] 
   });
 
   if (listings.length === 0) {
